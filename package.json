@@ -1,0 +1,24 @@
+{
+  "name": "chor-website",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^4.4.0",
+    "decap-cms-app": "^3.0.12",
+    "sharp": "^0.34.1",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "favicons": "^7.2.0",
+    "favicons-webpack-plugin": "^6.0.1"
+  }
+}

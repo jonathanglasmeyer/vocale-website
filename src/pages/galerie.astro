@@ -1,0 +1,74 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Galerie">
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-display font-bold text-primary-600 mb-8 text-center">Galerie</h1>
+      
+      <div class="max-w-6xl mx-auto">
+        <p class="text-center text-gray-700 mb-8">
+          Hier finden Sie Eindrücke von unseren Konzerten und gemeinsamen Aktivitäten.
+        </p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Diese Bilder sind Platzhalter. Ersetzen Sie sie durch eigene Bilder -->
+          <div class="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div class="aspect-w-4 aspect-h-3 bg-primary-100 flex items-center justify-center">
+              <p class="text-primary-500 text-center p-4">Konzert-Foto 1</p>
+            </div>
+            <div class="p-4">
+              <p class="font-medium">Frühlingskonzert 2024</p>
+            </div>
+          </div>
+          
+          <div class="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div class="aspect-w-4 aspect-h-3 bg-primary-100 flex items-center justify-center">
+              <p class="text-primary-500 text-center p-4">Konzert-Foto 2</p>
+            </div>
+            <div class="p-4">
+              <p class="font-medium">Weihnachtskonzert 2023</p>
+            </div>
+          </div>
+          
+          <div class="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div class="aspect-w-4 aspect-h-3 bg-primary-100 flex items-center justify-center">
+              <p class="text-primary-500 text-center p-4">Chorprobe</p>
+            </div>
+            <div class="p-4">
+              <p class="font-medium">Wöchentliche Probe</p>
+            </div>
+          </div>
+          
+          <div class="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div class="aspect-w-4 aspect-h-3 bg-primary-100 flex items-center justify-center">
+              <p class="text-primary-500 text-center p-4">Chor-Ausflug</p>
+            </div>
+            <div class="p-4">
+              <p class="font-medium">Sommerfest 2023</p>
+            </div>
+          </div>
+          
+          <div class="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div class="aspect-w-4 aspect-h-3 bg-primary-100 flex items-center justify-center">
+              <p class="text-primary-500 text-center p-4">Konzert-Foto 3</p>
+            </div>
+            <div class="p-4">
+              <p class="font-medium">Herbstkonzert 2023</p>
+            </div>
+          </div>
+          
+          <div class="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div class="aspect-w-4 aspect-h-3 bg-primary-100 flex items-center justify-center">
+              <p class="text-primary-500 text-center p-4">Gruppenfoto</p>
+            </div>
+            <div class="p-4">
+              <p class="font-medium">Der gesamte Chor</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

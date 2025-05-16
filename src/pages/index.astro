@@ -1,0 +1,64 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Startseite">
+  <div class="relative">
+    <!-- Hero-Bereich mit Bild und Inhalt -->
+    <section class="relative overflow-hidden min-h-[80vh] flex flex-col justify-start">
+      <!-- Hero-Bild mit Überlagerung -->
+      <div class="absolute inset-0 z-0">
+        <picture>
+          <source srcset="/images/vocale-hero-diverse-rose.webp" type="image/webp">
+          <source srcset="/images/vocale-hero-diverse-rose.jpg" type="image/jpeg"> 
+          <img 
+            src="/images/vocale-hero-diverse-rose.jpg" 
+            alt="Vocalé Frauenchor" 
+            class="w-full h-full object-cover object-center"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </picture>
+      </div>
+      
+      <!-- Typografischer Bereich oben im Hero -->
+      <div class="relative z-10 w-full flex flex-col items-center pt-16 md:pt-20 lg:pt-14">
+        <h1 class="font-display uppercase tracking-[0.02em] text-primary-500 font-bold"
+            style="font-size:clamp(2.5rem,8vw,5.5rem); letter-spacing:0.02em; line-height:1.05;">
+          VOCALÉ
+        </h1>
+       
+      </div>
+
+      
+
+    <!-- Geschwungene Kante unten (Hero-Ende) -->
+    <div class="absolute bottom-[-1px] left-0 right-0 w-full overflow-hidden z-10 pointer-events-none" style="margin-bottom: -1px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" preserveAspectRatio="none" class="w-full h-10 md:h-16 block" style="margin-bottom: -2px;">
+        <path fill="#ffffff" d="M0,30L48,32C96,34,192,38,288,36C384,34,480,28,576,30C672,32,768,42,864,42C960,42,1056,32,1152,28C1248,24,1344,32,1392,36L1440,40L1440,60L1392,60C1344,60,1248,60,1152,60C1056,60,960,60,864,60C768,60,672,60,576,60C480,60,384,60,288,60C192,60,96,60,48,60L0,60Z"></path>
+      </svg>
+      <!-- Zusätzlicher Überlappungs-Fix -->
+      <div class="h-[2px] w-full bg-white -mt-[1px]"></div>
+    </div>
+  </div>
+
+  <section class="py-16 md:py-12 md:pb-16 px-4 bg-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="font-display text-2xl md:text-2xl font-light text-gray-700 mb-7 md:mb-8" style="line-height:1.6;">
+        <span class="font-display text-primary-600 font-medium">Wir sind ein Frauenchor aus dem Raum Hamburg</span> – offen, lebendig und generationsübergreifend. Wir haben gerade erst begonnen und suchen noch Mitglieder!
+      </h2>
+      <!-- Call-to-Action Buttons -->
+      <div class="flex flex-col md:flex-row justify-center gap-4 md:gap-6 mt-0 pt-2">
+        <a href="/mitsingen"
+           class="w-full md:w-auto px-7 md:px-10 py-3 md:py-4 rounded-full shadow-sm transition-all duration-200 text-base md:text-lg font-semibold bg-primary-400 hover:bg-primary-500 text-white border-2 border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-200 hover:-translate-y-0.5 hover:shadow-md">
+          Mitsingen
+        </a>
+        <a href="/ueber-uns"
+           class="w-full md:w-auto px-7 md:px-10 py-3 md:py-4 rounded-full shadow-sm transition-all duration-200 text-base md:text-lg font-semibold bg-white hover:bg-primary-50 text-primary-400 border-2 border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100 hover:-translate-y-0.5 hover:shadow-md">
+          Mehr erfahren
+        </a>
+      </div>
+      
+    </div>
+  </section>
+</MainLayout>

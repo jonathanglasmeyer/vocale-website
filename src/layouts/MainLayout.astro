@@ -1,0 +1,147 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  canonicalUrl?: string;
+  image?: string;
+  type?: 'website' | 'article';
+}
+
+const { 
+  title, 
+  description = "Frauenchor Vocalé - Vielseitige Frauen im Einklang seit 2010. Dynamischer Frauenchor mit vielseitigem Repertoire aus Klassik, Volksmusik und Pop.",
+  canonicalUrl = Astro.url.href,
+  image = "/images/social_media_preview.jpg", // JPG als Standard für Social Media
+  type = "website"
+} = Astro.props;
+
+// Absolute URLs für Open Graph
+const siteUrl = Astro.site ? Astro.site.href : "https://vocale-chor.de";
+const ogImageUrl = image.startsWith('http') ? image : `${siteUrl}${image.startsWith('/') ? image.slice(1) : image}`;
+const ogImageUrlWebP = ogImageUrl.replace('.jpg', '.webp');
+const ogImageWidth = 1200;
+const ogImageHeight = 630;
+---
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Grundlegende SEO -->
+    <title>{title} | Vocalé</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="mask-icon" href="/images/favicon.png" color="#D27277">
+    <meta name="msapplication-TileColor" content="#D27277">
+    <meta name="msapplication-TileImage" content="/apple-touch-icon-144x144.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={`${title} | Vocalé`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content={ogImageWidth} />
+    <meta property="og:image:height" content={ogImageHeight} />
+    <meta property="og:image:alt" content="Frauenchor Vocalé" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Frauenchor Vocalé" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={`${title} | Vocalé`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content="Frauenchor Vocalé" />
+    
+    <!-- Weitere Meta-Tags -->
+    <meta name="author" content="Frauenchor Vocalé" />
+    <meta name="keywords" content="Frauenchor, Chor, Gesang, Musik, Vocalé, Singen, Chorgemeinschaft" />
+    <meta name="theme-color" content="#D27277" />
+    
+    <!-- Schriftarten -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    
+    <!-- Strukturierte Daten für den Chor (Schema.org) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "MusicGroup",
+        "name": "Frauenchor Vocalé",
+        "description": "Dynamischer Frauenchor mit vielseitigem Repertoire aus Klassik, Volksmusik und Pop.",
+        "foundingDate": "2010",
+        "image": "/images/vocale-social-image.jpg",
+        "genre": ["Klassik", "Volkslieder", "Pop"],
+        "rehearsalLocation": {
+          "@type": "Place",
+          "name": "Gemeindehaus",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Musterstadt",
+            "postalCode": "12345",
+            "streetAddress": "Musterstraße 123"
+          }
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "info@vocale-chor.de",
+          "contactType": "Kontakt"
+        }
+      }
+    </script>
+  </head>
+  <body class="font-sans min-h-screen flex flex-col bg-gradient-to-b from-white via-[#f7f0e7] to-primary-100">
+    <header class="bg-white/90 backdrop-blur-sm shadow-sm py-4 sticky top-0 z-50">
+      <div class="container mx-auto px-4">
+        <nav class="flex justify-between items-center">
+          <a href="/" class="text-2xl font-display font-bold text-primary-500">Vocalé</a>
+          <ul class="flex space-x-6">
+            <li><a href="/ueber-uns" class="text-gray-700 hover:text-primary-500 transition-colors">Über uns</a></li>
+            <!-- <li><a href="/konzerte" class="text-gray-700 hover:text-primary-500 transition-colors">Konzerte</a></li> -->
+            <li><a href="/mitsingen" class="text-gray-700 hover:text-primary-500 transition-colors">Mitsingen</a></li>
+            <!-- <li><a href="/galerie" class="text-gray-700 hover:text-primary-500 transition-colors">Galerie</a></li> -->
+            <li><a href="/kontakt" class="text-gray-700 hover:text-primary-500 transition-colors">Kontakt</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <footer class="bg-secondary-50/50 text-gray-700 py-8 border-t border-secondary-100">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <p class="font-display text-xl text-primary-500">Vocalé</p>
+          </div>
+          <div>
+            <a href="/kontakt" class="bg-primary-500 text-white px-4 py-2 rounded hover:bg-primary-600 transition-colors">Kontakt</a>
+          </div>
+        </div>
+        <div class="mt-8 flex flex-col md:flex-row justify-center items-center gap-2 text-center text-gray-500 text-sm">
+          <p>&copy; {new Date().getFullYear()} Frauenchor Vocalé. Alle Rechte vorbehalten.</p>
+          <span class="hidden md:inline mx-2">|</span>
+          <div class="flex flex-row gap-4">
+            <a href="/impressum" class="hover:text-primary-500 underline">Impressum</a>
+            <a href="/datenschutz" class="hover:text-primary-500 underline">Datenschutz</a>
+            <a href="/cookies" class="hover:text-primary-500 underline">Cookie-Richtlinie</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

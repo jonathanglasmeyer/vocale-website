@@ -1,0 +1,18 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "konzerte"
+    label: "Konzerte"
+    folder: "src/content/konzerte"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titel", name: "titel", widget: "string" }
+      - { label: "Datum", name: "datum", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false }
+      - { label: "Ort", name: "ort", widget: "string" }
+      - { label: "Text", name: "text", widget: "text" }
